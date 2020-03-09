@@ -12,11 +12,15 @@ import requests
 from types import SimpleNamespace
 from collections import namedtuple as NT
 
+# Local imports
+from tbl import util
+
 # NamedTuples provide simple record-type structures for giving
 # names to information. I don't need full classes here (yet),
 # but I don't want to use plain lists or tuples, because down that road
 # lies madness. There will ultimately be quite a few, and I'll probably
 # move them into their own namespace.
+# http://bit.ly/2PVUSha
 Column = NT("Column", ["name", "type"])
 
 class tbl:
@@ -26,7 +30,6 @@ class tbl:
     # lets me set, modify, and delete attributes.
     # http://bit.ly/3aHq2Rx
     self.fields = SimpleNamespace()
-
     # Initialize fields
     self.fields.columns = list()
 
@@ -49,7 +52,11 @@ class tbl:
         for name in header_row:
           # FIXME: I need to guess the type of the column here.
           self._add_column(Column(name=name, type=None))
+      else: # No header
+        # FIXME: Define some exceptions and raise one.
+        # http://bit.ly/2TC3yve
+        pass
 
   def show_columns (self):
     for c in self.fields.columns:
-      print(c.name)
+      print("{} : {}".format(util.pad(c.name, limit=12, side=util.RIGHT), c.type))
