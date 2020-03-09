@@ -10,7 +10,7 @@
 import csv
 import requests
 
-def tbl_from_sheet(csv_url):
+def from_sheet(csv_url):
   with requests.Session() as s:
     download = s.get(csv_url)
     content = download.content.decode('utf-8')
