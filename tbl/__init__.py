@@ -14,6 +14,7 @@ from collections import namedtuple as NT
 
 # Local imports
 from tbl import util
+from tbl import validation as V
 
 # NamedTuples provide simple record-type structures for giving
 # names to information. I don't need full classes here (yet),
@@ -32,10 +33,13 @@ class tbl:
     self.fields = SimpleNamespace()
     # Initialize fields
     self.fields.columns = list()
+    self.fields.status = V.OK()
 
     # Handle keywords
     if url:
-      self.from_sheet(url, has_header=has_header)
+      self.fields.status = V._check_from_sheet(url, has_header)
+      if isinstance(self.fields.status, V.OK):
+        self.from_sheet(url, has_header=has_header)
 
   def _add_column(self, column):
     self.fields.columns.append(column)

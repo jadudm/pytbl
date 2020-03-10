@@ -1,2 +1,4 @@
 hydra
 requests
+pytest
+validators

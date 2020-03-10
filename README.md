@@ -11,7 +11,22 @@ This is a reworking of those ideas into Python. I am [blogging the rewrite step-
 The posts in the blog track the source. The table below connects the blog posts to the commits that they relate to. That is, the "Commit" links let you jump into the source at a point *in the past*, so that you can see the code that the post is referring to.
 
 
-| Post Date | Blog Post |Commit | 
-| --------- | ---------- | -------- | 
-| 2020-03-07 | [abstractions and imports](http://jadud.com/p/tbl-import/) | [link](https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7) |
-| 2020-03-09 | [structuring the project](http://jadud.com/p/tbl-structure/) | [link](https://github.com/jadudm/pytbl/tree/4433e25769f8ee70da0de363d6589f3c77a96a53) |
+<table> 
+          <tbody><tr>
+            <td>2020 03 09</td>
+            <td><a href="/p/tbl-structure/">tbl: structuring the project</a></td>
+            <td><a href="https://github.com/jadudm/pytbl/tree/4433e25769f8ee70da0de363d6589f3c77a96a53">code</a></td>
+          </tr>
+          
+          <tr>
+            <td>2020 03 08</td>
+            <td><a href="/p/tbl-import/">tbl: abstractions and imports</a></td>
+            <td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
+          </tr>
+         
+          <tr>
+            <td>2020 03 07</td>
+            <td><a href="/p/tbl/">tbl: thinking about data</a></td>
+            <td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
+          </tr>
+        </tbody></table>
