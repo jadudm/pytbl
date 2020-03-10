@@ -12,21 +12,21 @@ The posts in the blog track the source. The table below connects the blog posts 
 
 
 <table> 
-          <tbody><tr>
-            <td>2020 03 09</td>
-            <td><a href="/p/tbl-structure/">tbl: structuring the project</a></td>
-            <td><a href="https://github.com/jadudm/pytbl/tree/4433e25769f8ee70da0de363d6589f3c77a96a53">code</a></td>
-          </tr>
-          
-          <tr>
-            <td>2020 03 08</td>
-            <td><a href="/p/tbl-import/">tbl: abstractions and imports</a></td>
-            <td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
-          </tr>
-         
-          <tr>
-            <td>2020 03 07</td>
-            <td><a href="/p/tbl/">tbl: thinking about data</a></td>
-            <td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
-          </tr>
-        </tbody></table>
+<tbody><tr>
+<td>2020 03 09</td>
+<td><a href="/p/tbl-structure/">tbl: structuring the project</a></td>
+<td><a href="https://github.com/jadudm/pytbl/tree/4433e25769f8ee70da0de363d6589f3c77a96a53">code</a></td>
+</tr>
+
+<tr>
+<td>2020 03 08</td>
+<td><a href="/p/tbl-import/">tbl: abstractions and imports</a></td>
+<td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
+</tr>
+
+<tr>
+<td>2020 03 07</td>
+<td><a href="/p/tbl/">tbl: thinking about data</a></td>
+<td><a href="https://github.com/jadudm/pytbl/tree/527b16bdecbf73b874103922cf3038a1f2c1e1c7">code</a></td>
+</tr>
+</tbody></table>
