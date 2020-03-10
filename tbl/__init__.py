@@ -33,6 +33,7 @@ class tbl:
     self.fields = SimpleNamespace()
     # Initialize fields
     self.fields.columns = list()
+    self.fields.rows = list()
     self.fields.status = V.OK()
 
     # Handle keywords
@@ -43,6 +44,24 @@ class tbl:
 
   def _add_column(self, column):
     self.fields.columns.append(column)
+    # Add the columns to the object as an attribute.
+    # Storing the column object in the value of the attribute.
+    # FIXME: Should I lowercase everything? Or, follow the conventions of 
+    # the underlying data? This will matter when dealing with DBs, etc.
+    setattr(self, column.name.lower(), column)
+
+  def _add_row(self, row):
+    self.fields.rows.append(row)
+  
+  def _set_rows(self, rows):
+    self.fields.rows = rows
+
+  def _get_column_index(self, C):
+    ndx = 0
+    for index, c in enumerate(self.fields.columns):
+      if c.name == C.name:
+        ndx = index
+    return ndx
 
   def from_sheet(self, url, has_header=True):
     self.fields.url = url
@@ -60,7 +79,22 @@ class tbl:
         # FIXME: Define some exceptions and raise one.
         # http://bit.ly/2TC3yve
         pass
+      
+      for row in reader:
+        self._add_row(row)
 
-  def show_columns (self):
-    for c in self.fields.columns:
-      print("{} : {}".format(util.pad(c.name, limit=12, side=util.RIGHT), c.type))
+
+def show_columns (a_tbl):
+  for c in a_tbl.fields.columns:
+    print("{} : {}".format(util.pad(c.name, limit=12, side=util.RIGHT), c.type))
+
+def show_tbl (a_tbl):
+  field_width = 12
+  for c in a_tbl.fields.columns:
+    print(util.pad(c.name, limit=field_width), end="")
+  print()
+  for r in a_tbl.fields.rows:
+    for v in r:
+      print(util.pad(v, limit=field_width), end="")
+    print()
+

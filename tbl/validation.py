@@ -1,6 +1,7 @@
 import validators as val
 from collections import namedtuple as NT
 import re
+import requests
 
 OK = NT("OK", [])
 KO = NT("KO", ["code", "message"])
@@ -17,6 +18,9 @@ def _check_from_sheet(url, has_header):
     return KO(URL_NOT_A_STRING, "The URL you passed does not look like a string: {}".format(url))
   if not val.url(url):
     return KO(BAD_URL, "The URL '{}' appears to be invalid.".format(url))
+  # Expand the URL, in case it has been shortened via bit.ly or similar
+  _url = url
+  url = requests.get(url).url
   # Should the URL end in CSV? Am I guaranteed that a Google Sheets 
   # CSV URL will end this way? This might get tricky.
   # If it is a sheets URL, and the letters "csv" appear in the URL, it will be OK.
@@ -24,6 +28,7 @@ def _check_from_sheet(url, has_header):
       and re.search("spreadsheets", url)
       and re.search("csv", url)):
       return OK()
+  
   # If it isn't a sheets URL, then perhaps it is a valid URL that 
   # just points to a CSV. Therefore, it should end in '.csv'.
   if not (re.search(".csv$", url) or re.search(".CSV$", url)):

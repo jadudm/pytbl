@@ -3,10 +3,11 @@ LEFT   = 1
 CENTER = 2
 
 def pad (in_string, limit=20, side=RIGHT):
-  current = len(in_string) + 1
+  _ins = str(in_string)
+  current = len(_ins) + 1
   padding = ' ' * (limit - current)
   half_padding = ' ' * ((limit - current) // 2)
-  padded = in_string
+  padded = _ins
   if side == RIGHT:
     padded = padded + padding
   elif side == LEFT:

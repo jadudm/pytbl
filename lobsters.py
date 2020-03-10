@@ -1,6 +1,14 @@
-import tbl
+from tbl import tbl, show_columns, show_tbl
+from tbl.queries import gt, keep_rows_where
 
-pets_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSK2rd47ogfI2CpQi2L6HDo9AOEhnhqBN4zR4kLPUO28vBzmlc8XQWrvTfBYCU0ePf478yxcNKdOy5m/pub?gid=0&single=true&output=csv"
+pets_url = "http://bit.ly/2IzVqoV"
 
-a_tbl = tbl.tbl(url = pets_url)
-a_tbl.show_columns()
+print("The original table:")
+T = tbl(url = pets_url)
+show_tbl(T)
+
+print()
+
+print("The new table:")
+newT = T |keep_rows_where| (T.weight |gt| 0.8)
+show_tbl(newT)
