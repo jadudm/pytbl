@@ -17,9 +17,11 @@ class Infix:
     def __call__(self, value1, value2):
         return self.function(value1, value2)
 
+
 GT = NT("GT", ["lhs", "rhs"])
-KEEP = NT("KEEP", ["lhs", "rhs"])
-gt = Infix(lambda lhs, rhs: GT(lhs, rhs))
+@Infix
+def gt(lhs, rhs):
+    return GT(lhs, rhs)
 
 @Infix
 def keep_rows_where (lhs, rhs):
